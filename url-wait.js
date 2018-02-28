@@ -7,6 +7,9 @@ const waitForIt = (url, timeout) => {
     if (!url){
         throw new Error("The URL is invalid");
     }
+    if (!url.startsWith('http://') && !url.startsWith('https://')) {
+      url = "http://" + url;
+    }    
     if (!timeout){
         //30 seconds
         timeout = 30;
